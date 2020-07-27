@@ -1,0 +1,12 @@
+1. SELECT count(*) FROM flights 
+2. SELECT   Origin, avg(ArrDelay) as "prom_llegadas", avg(DepDelay) as "prom_salidas" from flights group by Origin  
+3. SELECT   Origin, colYear, colMonth, avg(ArrDelay) as "prom_llegada" from flights group by Origin, colYear, colMonth order by Origin asc
+4. SELECT `usairports`.`city`, `flights`.`colYear`, `flights`.`colMonth`, avg(`flights`.`ArrDelay`) AS "prom_llegada"
+ 	FROM `usairports` 
+ 	 INNER JOIN `flights` ON `flights`.`flightID` = `usairports`.`IATA`
+ 	GROUP BY `usairports`.`city`, `flights`.`colYear`, `flights`.`colMonth` ORDER BY city asc
+    
+5. SELECT  UniqueCarrier, colYear, colMonth, SUM(cancelled)as "total_cancelled" from flights GROUP BY UniqueCarrier, colYear, colMonth ORDER BY  total_cancelled desc
+6. SELECT TailNum, SUM(distance) as "total_distance"  FROM flights GROUP BY TailNum ORDER BY total_distance desc LIMIT 1, 10
+7. SELECT UniqueCarrier, AVG(ArrDelay) as "avg_delay" FROM flights GROUP BY UniqueCarrier ORDER BY avg_delay desc limit 9
+
